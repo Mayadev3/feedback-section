@@ -25,6 +25,7 @@ panel.addEventListener("click", (e) => {
 });*/
 
 /*here we are saying that in the ratings container, if whatever i click on's parent has the class of rating, then do this with the target being the image.. so now it will add the active class to the target*/
+
 ratingsContainer.addEventListener("click", (e) => {
   if (e.target.parentNode.classList.contains("rating")) {
     removeActive();
@@ -48,4 +49,5 @@ sendBtn.addEventListener("click", (e) => {
   <strong> Feedback: ${selectedRating}  </strong>
   <p>We'll use your feedback to improve our customer support </p>
   `;
+  //selectedRating worked here because the ratingsContainer is inside the panel
 });
