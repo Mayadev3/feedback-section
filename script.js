@@ -22,8 +22,14 @@ panel.addEventListener("click", (e) => {
   }
 });*/
 
+/*here we are saying that in the panel, if the target's parent has the class of rating, then do this with the target being the image.. so now it will add the active class to the target*/
 panel.addEventListener("click", (e) => {
   if (e.target.parentNode.classList.contains("rating")) {
-    console.log(e.target);
+    removeActive();
+    e.target.classList.add("active");
   }
 });
+
+function removeActive() {
+  ratings.forEach((rating) => rating.classList.remove("active"));
+}
