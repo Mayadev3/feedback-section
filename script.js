@@ -1,6 +1,8 @@
-let ratings = document.querySelectorAll(".rating");
-let panel = document.querySelector("#panel");
-let sendBtn = document.querySelector("#send");
+const ratings = document.querySelectorAll(".rating");
+const panel = document.querySelector("#panel");
+const sendBtn = document.querySelector("#send");
+const ratingsContainer = document.querySelector(".ratings-container");
+let selectedRating;
 
 console.log(
   ratings
@@ -22,14 +24,28 @@ panel.addEventListener("click", (e) => {
   }
 });*/
 
-/*here we are saying that in the panel, if the target's parent has the class of rating, then do this with the target being the image.. so now it will add the active class to the target*/
-panel.addEventListener("click", (e) => {
+/*here we are saying that in the ratings container, if whatever i click on's parent has the class of rating, then do this with the target being the image.. so now it will add the active class to the target*/
+ratingsContainer.addEventListener("click", (e) => {
   if (e.target.parentNode.classList.contains("rating")) {
     removeActive();
-    e.target.classList.add("active");
+    e.target.parentNode.classList.add("active");
+    selectedRating = e.target.nextElementSibling.innerHTML;
+    console.log(selectedRating);
   }
 });
 
 function removeActive() {
   ratings.forEach((rating) => rating.classList.remove("active"));
 }
+
+sendBtn.addEventListener("click", (e) => {
+  panel.innerHTML = `<i class= "fas fa-heart">
+  <br/>
+  <br/>
+  <strong>Thank You</strong>
+  <br/>
+  <br/>
+  <strong> Feedback: ${selectedRating}  </strong>
+  <p>We'll use your feedback to improve our customer support </p>
+  `;
+});
