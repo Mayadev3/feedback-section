@@ -4,9 +4,11 @@ const sendBtn = document.querySelector("#send");
 const ratingsContainer = document.querySelector(".ratings-container");
 let selectedRating;
 
-console.log(
-  ratings
-); /*ratings is a NodeList so you can iterate over it/ loop through it with forEach
+console.log(ratings);
+
+/*Here are some notes to remember and the code is all below*/
+
+/*ratings is a NodeList so you can iterate over it/ loop through it with forEach
 and you can add an eventlistener to each one through the looping
 
 Ex: ratings.forEach(rating => rating.addEventListener("click", sendInfo))
